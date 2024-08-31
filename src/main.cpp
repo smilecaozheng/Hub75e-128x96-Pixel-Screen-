@@ -109,7 +109,6 @@ void displaySetup(bool swapBlueGreen, uint8_t displayBright, uint8_t displayRota
   dma_display = new VirtualMatrixPanel(*dma_display_old, NUM_ROWS, NUM_COLS, PANEL_RES_X, PANEL_RES_Y, VIRTUAL_MATRIX_CHAIN_TYPE);
   // 插入 结束
 
-  // dma_display->setPhysicalPanelScanRate(NORMAL_TWO_SCAN);
 
 }
 

@@ -137,28 +137,38 @@ struct StatusController
 
 	void clockwiseLogo()
 	{
-		Locator::getDisplay()->drawRGBBitmap(1, 1, epd_bitmap_clockwise64, 63, 21);
+		// Locator::getDisplay()->drawRGBBitmap(1, 1, epd_bitmap_clockwise64, 63, 21);
+		Locator::getDisplay()->drawRGBBitmap(16, 1, epd_bitmap_clockwise64, 63, 21);
 	}
 
 	void wifiConnecting()
 	{
-		Locator::getDisplay()->fillRect(0, 24, 64, 52, 0);
-		Locator::getDisplay()->drawBitmap(16, 24, CW_STATUS_WIFI, 32, 32, 0x2459);
-		printCenter("Connecting WiFi", 61);
+		// Locator::getDisplay()->fillRect(0, 24, 64, 52, 0);
+		// Locator::getDisplay()->drawBitmap(16, 24, CW_STATUS_WIFI, 32, 32, 0x2459);
+		// printCenter("Connecting WiFi", 61);
+		Locator::getDisplay()->fillRect(0, 32, 96, 52, 0);
+		Locator::getDisplay()->drawBitmap(32, 32, CW_STATUS_WIFI, 32, 32, 0x2459);
+		printCenter("Connecting WiFi", 88);
 	}
 
 	void wifiConnectionFailed(const char *msg)
 	{
-		Locator::getDisplay()->fillRect(0, 24, 64, 52, 0);
-		Locator::getDisplay()->drawBitmap(16, 24, CW_STATUS_WIFI, 32, 32, 0xFA28);
-		printCenter(msg, 61);
+		// Locator::getDisplay()->fillRect(0, 24, 64, 52, 0);
+		// Locator::getDisplay()->drawBitmap(16, 24, CW_STATUS_WIFI, 32, 32, 0xFA28);
+		// printCenter(msg, 61);
+		Locator::getDisplay()->fillRect(0, 32, 96, 52, 0);
+		Locator::getDisplay()->drawBitmap(32, 32, CW_STATUS_WIFI, 32, 32, 0xFA28);
+		printCenter(msg, 88);
 	}
 
 	void ntpConnecting()
 	{
-		Locator::getDisplay()->fillRect(0, 24, 64, 52, 0);
-		Locator::getDisplay()->drawBitmap(16, 24, CW_STATUS_NTP, 32, 32, 0xBCBF);
-		printCenter("NTP Server", 61);
+		// Locator::getDisplay()->fillRect(0, 24, 64, 52, 0);
+		// Locator::getDisplay()->drawBitmap(16, 24, CW_STATUS_NTP, 32, 32, 0xBCBF);
+		// printCenter("NTP Server", 61);
+		Locator::getDisplay()->fillRect(0, 32, 96, 52, 0);
+		Locator::getDisplay()->drawBitmap(32, 32, CW_STATUS_NTP, 32, 32, 0xBCBF);
+		printCenter("NTP Server", 88);
 	}
 
 	void printCenter(const char *buf, int y)
@@ -167,7 +177,8 @@ struct StatusController
 		uint16_t w, h;
 		Locator::getDisplay()->setFont(&Picopixel);
 		Locator::getDisplay()->getTextBounds(buf, 0, y, &x1, &y1, &w, &h);
-		Locator::getDisplay()->setCursor(32 - (w / 2), y);
+		// Locator::getDisplay()->setCursor(32 - (w / 2), y);
+		Locator::getDisplay()->setCursor(48 - (w / 2), y);
 		Locator::getDisplay()->setTextColor(0xffff);
 		Locator::getDisplay()->print(buf);
 	}
